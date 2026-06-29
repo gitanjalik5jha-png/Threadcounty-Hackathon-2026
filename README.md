@@ -15,3 +15,4 @@ ThreadCounty simplifies textile quality control for manufacturers and researcher
 - *Smart Analysis:* Upload fabric images for automated thread density calculation.
 - *Insights Dashboard:* View, track, and download detailed textile reports.
 Scalable Architecture: Production-ready backend with secure database integration.
+https://threadcounty-hackathon-2026-jgur8rqew.vercel.app/
