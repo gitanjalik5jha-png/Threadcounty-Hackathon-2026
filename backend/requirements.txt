@@ -1,8 +1,6 @@
-tensorflow
-keras
-numpy
 flask
 gunicorn
+flask-cors
+numpy
 werkzeug
 pillow
-flask-cors
