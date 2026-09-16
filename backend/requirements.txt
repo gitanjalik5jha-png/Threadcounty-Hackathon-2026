@@ -1,4 +1,8 @@
-flask
-gunicorn
+tensorflow-cpu==2.14.0
+keras==2.14.0
+numpy>=1.23.5
+flask==3.0.0
+gunicorn==21.2.0
+werkzeug==3.0.1
+pillow==10.2.0
 flask-cors
-tensorflow==2.14.0
