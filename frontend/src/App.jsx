@@ -15,7 +15,7 @@ function App() {
     formData.append('file', file);
 
     try {
-axios.post('https://threadcounty-hackathon-2026-1.onrender.com/upload', formData, { {
+axios.post('https://threadcounty-hackathon-2026-1.onrender.com/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       alert("Server Response: " + response.data.message);
