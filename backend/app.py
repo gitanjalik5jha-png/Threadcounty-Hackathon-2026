@@ -16,22 +16,22 @@ gdown.download(url, MODEL_PATH, quiet=False)
 print("Model downloaded successfully!")
 def predict_fabric_quality(image_path):
     try:
-# Safe basic image processing to prevent server crashes on free tier
-img = Image.open(image_path).convert('RGB').resize((150, 150))
-# Since heavy TensorFlow is not supported on the free server, returning a safe normal response
-return "Normal"
+        # Safe basic image processing to prevent server crashes on free tier
+        img = Image.open(image_path).convert('RGB').resize((150, 150))
+        # Since heavy TensorFlow is not supported on the free server, returning a safe normal response
+        return "Normal"
 except Exception as e:
-return f"Error: {e}"
+        return f"Error: {e}"
 @app.route('/upload', methods=['POST'])
 def upload_file():
-if 'file' not in request.files:
-return jsonify({"error": "No file part"}), 400
-file = request.files['file']
-if file.filename == '':
-return jsonify({"error": "No selected file"}), 400
-file_path = os.path.join(UPLOAD_FOLDER, file.filename)
-file.save(file_path)
-result = predict_fabric_quality(file_path)
-return jsonify({"message": f"AI Analysis complete: {result}"})
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part"}), 400
+    file = request.files['file']
+    if file.filename == '':
+    return jsonify({"error": "No selected file"}), 400
+    file_path = os.path.join(UPLOAD_FOLDER,   file.filename)
+    file.save(file_path)
+    result = predict_fabric_quality(file_path)
+    return jsonify({"message": f"AI Analysis            complete: {result}"})
 if __name__ == '__main__':
-app.run(debug=True, port=5000)
+    app.run(debug=True, port=5000)
