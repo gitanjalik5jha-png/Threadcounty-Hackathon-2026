@@ -4,3 +4,6 @@ flask-cors
 numpy
 werkzeug
 pillow
+tensorflow
+keras
+gdown
