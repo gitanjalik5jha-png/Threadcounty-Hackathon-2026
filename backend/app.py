@@ -15,7 +15,7 @@ url = 'https://drive.google.com/uc?export=download&id=1UlTiuCilD1HD8GALo9PUDR4g-
 gdown.download(url, MODEL_PATH, quiet=False)
 print("Model downloaded successfully!")
 def predict_fabric_quality(image_path):
-try:
+    try:
 # Safe basic image processing to prevent server crashes on free tier
 img = Image.open(image_path).convert('RGB').resize((150, 150))
 # Since heavy TensorFlow is not supported on the free server, returning a safe normal response
