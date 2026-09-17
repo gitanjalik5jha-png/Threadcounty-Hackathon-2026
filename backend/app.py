@@ -1,6 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from tensorflow.keras.models import load_model
+model = None
+try:
+    from tensorflow.keras.models import load_model
+except Exception as e:
+    print(f"TensorFlow import error: {e}")
+
 import numpy as np
 from PIL import Image
 import os
@@ -16,7 +21,14 @@ if not os.path.exists('fabric_model.h5'):
     url = 'https://drive.google.com/uc?export=download&id=1UlTiuCilD1HD8GALo9PUDR4g-5MX7co7'
     gdown.download(url, 'fabric_model.h5', quiet=False)
 
-model = load_model('fabric_model.h5')
+if load_model is not None:
+    try:
+        model = load_model('fabric_model.h5')
+        print("Model loaded successfully!")
+    except Exception as e:
+        print(f"Error loading model: {e}")
+else:
+    model = None
 
 def predict_fabric_quality(image_path):
     img = Image.open(image_path).convert('RGB').resize((150, 150))
