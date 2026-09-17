@@ -4,8 +4,7 @@ import numpy as np
 from PIL import Image
 import os
 import gdown
-​   app = Flask(__name__)
-   
+app = Flask(__name__)   
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 CORS(app)
@@ -34,5 +33,5 @@ return jsonify({"error": "No selected file"}), 400
 file.save(file_path)
 result = predict_fabric_quality(file_path)
 ​return jsonify({"message": f"AI Analysis complete: {result}"})
-   if __name__ == '__main__':
+if __name__ == '__main__':
 app.run(debug=True, port=5000)
