@@ -32,6 +32,6 @@ return jsonify({"error": "No selected file"}), 400
 file_path = os.path.join(UPLOAD_FOLDER, file.filename)
 file.save(file_path)
 result = predict_fabric_quality(file_path)
-​return jsonify({"message": f"AI Analysis complete: {result}"})
+return jsonify({"message": f"AI Analysis complete: {result}"})
 if __name__ == '__main__':
 app.run(debug=True, port=5000)
