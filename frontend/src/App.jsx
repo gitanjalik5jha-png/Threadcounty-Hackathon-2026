@@ -15,7 +15,7 @@ function App() {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:5000/upload', formData, {
+      const response = await axios.post('.https://threadcounty-hackathon-2026-1.onrender.co :5000/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       alert("Server Response: " + response.data.message);
