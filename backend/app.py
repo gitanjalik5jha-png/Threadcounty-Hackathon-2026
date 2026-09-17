@@ -10,6 +10,12 @@ UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 CORS(app)
 
+import gdown
+
+if not os.path.exists('fabric_model.h5'):
+    url = 'https://drive.google.com/uc?export=download&id=1UlTiuCilD1HD8GALo9PUDR4g-5MX7co7'
+    gdown.download(url, 'fabric_model.h5', quiet=False)
+
 model = load_model('fabric_model.h5')
 
 def predict_fabric_quality(image_path):
