@@ -28,8 +28,8 @@ def upload_file():
         return jsonify({"error": "No file part"}), 400
     file = request.files['file']
     if file.filename == '':
-    return jsonify({"error": "No selected file"}), 400
-    file_path = os.path.join(UPLOAD_FOLDER,   file.filename)
+        return jsonify({"error": "No selected file"}), 400
+        file_path = os.path.join(UPLOAD_FOLDER,   file.filename)
     file.save(file_path)
     result = predict_fabric_quality(file_path)
     return jsonify({"message": f"AI Analysis complete: {result}"})
