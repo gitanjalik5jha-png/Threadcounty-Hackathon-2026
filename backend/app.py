@@ -20,7 +20,7 @@ def predict_fabric_quality(image_path):
         img = Image.open(image_path).convert('RGB').resize((150, 150))
         # Since heavy TensorFlow is not supported on the free server, returning a safe normal response
         return "Normal"
-except Exception as e:
+    except Exception as e:
         return f"Error: {e}"
 @app.route('/upload', methods=['POST'])
 def upload_file():
