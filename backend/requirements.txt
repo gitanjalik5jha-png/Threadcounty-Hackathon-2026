@@ -4,6 +4,4 @@ flask-cors
 numpy
 werkzeug
 pillow
-tensorflow-cpu
-keras
 gdown
