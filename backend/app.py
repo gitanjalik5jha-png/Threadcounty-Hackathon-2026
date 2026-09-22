@@ -22,6 +22,9 @@ def predict_fabric_quality(image_path):
         return "Normal"
     except Exception as e:
         return f"Error: {e}"
+@app.route('/')
+def home():
+    return "ThreadCounty Backend is running successfully!"
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
